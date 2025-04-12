@@ -10,16 +10,16 @@
 </head>
 <body>
     <header class="header">
-        <a href="index.html" class="logo-link">
-            <img src="img/logo-no-background.png" alt="MoneyMatic Logo" class="logo">
+        <a href="../index.html" class="logo-link">
+            <img src="../img/logo-no-background.png" alt="MoneyMatic Logo" class="logo">
         </a>
         <nav class="nav">
             <button class="nav-toggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-list">
-                <li><a href="../Index.html#home" class="nav-link">Home</a></li>
-                <li><a href="../Index.html#features" class="nav-link">Features</a></li>
-                <li><a href="../Index.html#use-case" class="nav-link">Use Case</a></li>
-                <li><a href="../Index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../index.html#use-case" class="nav-link">Use Case</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
@@ -32,18 +32,6 @@
         <div class="auth-card">
             <h1>Sign Up</h1>
             <p>Create your MoneyMatic account to get started.</p>
-            <button class="cta-button google-login" onclick="initiateGoogleSignup()">
-                <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-1.02.68-2.33 1.09-3.71 1.09-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C4.01 20.76 7.74 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.74 1 4.01 3.24 2.18 6.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                </svg>
-                Sign Up with Gmail
-            </button>
-            <div class="divider">
-                <span>or</span>
-            </div>
             <form action="/api/signup" method="post" class="auth-form">
                 <div class="input-group">
                     <input type="text" id="username" name="username" required placeholder=" ">
@@ -63,10 +51,7 @@
                     <label for="confirm-password">Confirm Password</label>
                     <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
                 </div>
-                <div class="recaptcha-container">
-                    <div id="recaptcha"></div>
-                </div>
-                <button type="submit" class="cta-button primary" disabled id="signup-button">Sign Up</button>
+                <button type="submit" class="cta-button primary" id="signup-button">Sign Up</button>
             </form>
             <div class="auth-options">
                 <p>Already have an account? <a href="login.html" class="auth-link">Log In</a></p>
@@ -89,17 +74,13 @@
         <p>Made with love ❤️ by CodeStorm</p>
     </footer>
 
-    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-        // Navbar toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navList = document.querySelector('.nav-list');
         navToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
         });
 
-        // Password visibility toggle
         const togglePasswords = document.querySelectorAll('.toggle-password');
         togglePasswords.forEach(button => {
             button.addEventListener('click', () => {
@@ -110,46 +91,37 @@
             });
         });
 
-        // Google Signup
-        function initiateGoogleSignup() {
-            const client = google.accounts.oauth2.initTokenClient({
-                client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your Google Client ID
-                scope: 'profile email',
-                callback: (response) => {
-                    if (response.access_token) {
-                        fetch('/api/google-signup', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ token: response.access_token })
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log('Signup Success:', data);
-                            // Redirect or update UI
-                        })
-                        .catch(err => console.error('Signup Error:', err));
-                    }
-                },
-            });
-            client.requestAccessToken();
-        }
+        const signupForm = document.querySelector('.auth-form');
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
 
-        // reCAPTCHA
-        window.onload = function () {
-            grecaptcha.render('recaptcha', {
-                'sitekey': 'YOUR_RECAPTCHA_SITE_KEY', // Replace with your reCAPTCHA site key
-                'callback': onRecaptchaSuccess,
-                'expired-callback': onRecaptchaExpired
-            });
-        };
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
 
-        function onRecaptchaSuccess() {
-            document.getElementById('signup-button').disabled = false;
-        }
-
-        function onRecaptchaExpired() {
-            document.getElementById('signup-button').disabled = true;
-        }
+            try {
+                const response = await fetch('http://localhost:5000/api/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password, confirmPassword }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    alert('Signup successful!');
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                alert('Signup failed. Please try again.');
+            }
+        });
     </script>
 </body>
 </html>

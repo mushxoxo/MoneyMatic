@@ -1,3 +1,4 @@
+/* Root Variables */
 :root {
     --primary-color: #7699D4; /* Soft Blue: Buttons, links, focus */
     --secondary-color: #41EAD4; /* Teal: Hover, secondary buttons */
@@ -8,6 +9,7 @@
     --transition: all 0.3s ease;
 }
 
+/* Reset default margins and padding */
 * {
     margin: 0;
     padding: 0;
@@ -40,6 +42,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
+    color: var(--accent-color); /* Adjusted to match accent color */
 }
 
 .logo {
@@ -126,7 +129,7 @@ body {
     color: #fff;
 }
 
-/* Hero Section */
+/* Hero Section (from original) */
 .hero {
     height: 100vh;
     display: flex;
@@ -180,7 +183,7 @@ body {
     z-index: -1;
 }
 
-/* Features Section */
+/* Features Section (from original) */
 .features {
     padding: 80px 20px;
     text-align: center;
@@ -233,7 +236,7 @@ body {
     color: var(--text-dark);
 }
 
-/* Use Case Section */
+/* Use Case Section (from original) */
 .use-case {
     padding: 80px 20px;
     background: rgba(248, 241, 233, 0.5);
@@ -285,7 +288,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Call to Action Section */
+/* Call to Action Section (from original) */
 .call-to-action {
     padding: 80px 20px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -324,7 +327,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Footer Styles */
+/* Footer Styles (from original with adjustments) */
 .footer {
     padding: 40px 20px;
     background-color: var(--text-dark);
@@ -384,7 +387,7 @@ body {
     font-size: 14px;
 }
 
-/* Policy Section Styles */
+/* Policy Section Styles (from original) */
 .policy-section {
     padding: 80px 20px;
     background: var(--background-light);
@@ -440,7 +443,7 @@ body {
     left: 0;
 }
 
-/* Contact Section Styles */
+/* Contact Section Styles (from original) */
 .contact-section {
     padding: 80px 20px;
     background: rgba(248, 241, 233, 0.5);
@@ -491,7 +494,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Auth Section Styles (Login, Signup) */
+/* Auth Section Styles (from original) */
 .auth-section {
     min-height: 100vh;
     display: flex;
@@ -634,7 +637,7 @@ body {
     text-decoration: underline;
 }
 
-/* Google Login/Signup Button */
+/* Google Login/Signup Button (from original) */
 .google-login {
     display: flex;
     align-items: center;
@@ -663,7 +666,7 @@ body {
     height: 24px;
 }
 
-/* Divider */
+/* Divider (from original) */
 .divider {
     position: relative;
     text-align: center;
@@ -690,7 +693,7 @@ body {
     z-index: 0;
 }
 
-/* reCAPTCHA */
+/* reCAPTCHA (from original) */
 .recaptcha-container {
     display: flex;
     justify-content: center;
@@ -700,6 +703,69 @@ body {
 #recaptcha {
     transform: scale(1);
     transform-origin: center;
+}
+
+/* Dashboard Specific Styles */
+.dashboard-container {
+    margin-top: 80px; /* Space below fixed header */
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dashboard-container h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.dashboard-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.upload-container {
+    background: var(--background-light);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.upload-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#uploadForm {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#documentInput {
+    padding: 0.5rem;
+    border: 1px solid rgba(28, 35, 33, 0.2);
+    border-radius: 8px;
+    background: rgba(248, 241, 233, 0.8);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#documentInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(118, 153, 212, 0.2);
+}
+
+#output {
+    padding: 1rem;
+    background: rgba(248, 241, 233, 0.9);
+    border: 1px solid rgba(28, 35, 33, 0.2);
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
 /* Responsive Design */
@@ -767,6 +833,19 @@ body {
 
     .auth-card h1 {
         font-size: 1.8rem;
+    }
+
+    .dashboard-container {
+        margin-top: 70px;
+        padding: 1rem;
+    }
+
+    #uploadForm {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
     }
 
     .contact-content {

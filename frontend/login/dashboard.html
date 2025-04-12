@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMatic - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo-link">
+            <img src="../img/logo-no-background.png" alt="MoneyMatic Logo" class="logo">
+        </a>
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../index.html#use-case" class="nav-link">Use Case</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard-container">
+        <h1>Dashboard</h1>
+        <p>Welcome to your MoneyMatic dashboard!</p>
+
+        <!-- File Upload Form -->
+        <div class="upload-container">
+            <h2>Upload Financial Document</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="documentInput" accept=".pdf,.jpg,.png" required>
+                <button type="submit" class="cta-button primary">Process Document</button>
+            </form>
+            <div id="output" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- Logout Button -->
+        <button onclick="logout()" class="cta-button primary" style="margin-top: 20px;">Log Out</button>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">MoneyMatic</div>
+        <ul class="footer-links">
+            <li><a href="../other/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../other/terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../other/contact-us.html">Contact Us</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="https://twitter.com" aria-label="Twitter"><span>🐦</span></a>
+            <a href="https://linkedin.com" aria-label="LinkedIn"><span>💼</span></a>
+            <a href="https://youtube.com" aria-label="YouTube"><span>🎥</span></a>
+        </div>
+        <p>Made with love ❤️ by CodeStorm</p>
+    </footer>
+
+    <script>
+        // Load dashboard (token check)
+        async function loadDashboard() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/dashboard', {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                const data = await response.json();
+                if (!response.ok) {
+                    alert(data.message);
+                    window.location.href = '../login/login.html';
+                }
+            } catch (err) {
+                alert('Error loading dashboard');
+                window.location.href = '../login/login.html';
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '../login/login.html';
+        }
+
+        // Mock NLP Processing Function
+        async function processDocument(file) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Simulate NLP output (replace with actual API call)
+                    const mockOutput = {
+                        extractedData: {
+                            totalAmount: 5000,
+                            date: "2025-04-12",
+                            documentType: "Invoice"
+                        },
+                        classifiedExpenses: [
+                            { category: "Utilities", amount: 2000 },
+                            { category: "Travel", amount: 3000 }
+                        ],
+                        summary: "Total expenses: $5000. Key categories: Utilities ($2000) and Travel ($3000). Financial health appears stable."
+                    };
+                    resolve(mockOutput);
+                }, 2000); // Simulate 2-second processing time
+            });
+        }
+
+        // Handle form submission
+        const uploadForm = document.getElementById('uploadForm');
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('documentInput');
+            const outputDiv = document.getElementById('output');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                outputDiv.innerText = "Please select a file to process.";
+                return;
+            }
+
+            outputDiv.innerText = "Processing document...";
+
+            try {
+                const result = await processDocument(file);
+                outputDiv.innerHTML = `
+                    <h3>Processing Results</h3>
+                    <p><strong>Extracted Data:</strong></p>
+                    <ul>
+                        <li>Total Amount: $${result.extractedData.totalAmount}</li>
+                        <li>Date: ${result.extractedData.date}</li>
+                        <li>Document Type: ${result.extractedData.documentType}</li>
+                    </ul>
+                    <p><strong>Classified Expenses:</strong></p>
+                    <ul>
+                        ${result.classifiedExpenses.map(exp => `<li>${exp.category}: $${exp.amount}</li>`).join('')}
+                    </ul>
+                    <p><strong>Summary:</strong> ${result.summary}</p>
+                `;
+            } catch (err) {
+                outputDiv.innerText = "Error processing document. Please try again.";
+            }
+        });
+
+        // Initial load
+        loadDashboard();
+    </script>
+</body>
+</html>
