@@ -1,5 +1,5 @@
 
-# 🧠 Financial Document Image Classifier
+# 💸 MoneyMatic
 
 This project is a Flask-based web application that lets you upload scanned financial documents (images) and classifies them into categories like:
 
