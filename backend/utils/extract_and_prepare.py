@@ -4,10 +4,8 @@ from PIL import Image
 import pandas as pd
 import re
 
-# Step 1: Set up Tesseract if needed (optional)
 pytesseract.pytesseract.tesseract_cmd = r"C:/Program Files/Tesseract-OCR/tesseract.exe"
 
-# Step 2: OCR extraction from nested folders
 BASE_DIR = "./dataset"
 ocr_data = []
 
@@ -29,21 +27,17 @@ for root, dirs, files in os.walk(BASE_DIR):
             except Exception as e:
                 print(f"❌ Error processing {filepath}: {e}")
 
-# Step 3: Clean text
 def clean_text(text):
     text = text.lower()
     text = re.sub(r'[^a-z0-9₹.,:/\s-]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-# Step 4: Convert to DataFrame
 df = pd.DataFrame(ocr_data)
 df['clean_text'] = df['raw_text'].apply(clean_text)
 
-# Step 5: Add placeholder label (optional)
-# You can edit this CSV later to manually assign true labels
-df['label'] = df['folder']  # Use folder name as initial label
+df['label'] = df['folder']  
 
-# Step 6: Save to CSV
+
 df.to_csv("cleaned_financial_text_data.csv", index=False)
 print("\n📁 All OCR and preprocessing complete. Saved to cleaned_financial_text_data.csv")

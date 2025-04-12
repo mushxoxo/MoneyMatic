@@ -1,15 +1,13 @@
-/* Root Variables */
 :root {
-    --primary-color: #7699D4; /* Soft Blue: Buttons, links, focus */
-    --secondary-color: #41EAD4; /* Teal: Hover, secondary buttons */
-    --accent-color: #D1345B; /* Coral-Red: Logo, hero heading */
-    --background-light: #F8F1E9; /* Off-White: Backgrounds, cards */
-    --text-dark: #1C2321; /* Dark Gray: Text, headers */
+    --primary-color: #7699D4; 
+    --secondary-color: #41EAD4; 
+    --accent-color: #D1345B; 
+    --background-light: #F8F1E9; 
+    --text-dark: #1C2321; 
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
 
-/* Reset default margins and padding */
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +22,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Header Styles */
 .header {
     position: fixed;
     top: 0;
@@ -33,7 +30,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(248, 241, 233, 0.95); /* #F8F1E9 with opacity */
+    background-color: rgba(248, 241, 233, 0.95); 
     box-shadow: var(--shadow);
     z-index: 1000;
 }
@@ -42,11 +39,11 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--accent-color); /* Adjusted to match accent color */
+    color: var(--accent-color); 
 }
 
 .logo {
-    height: 40px; /* Adjust based on your logo size */
+    height: 40px;
     width: auto;
     transition: var(--transition);
 }
@@ -129,7 +126,7 @@ body {
     color: #fff;
 }
 
-/* Hero Section (from original) */
+
 .hero {
     height: 100vh;
     display: flex;
@@ -183,7 +180,7 @@ body {
     z-index: -1;
 }
 
-/* Features Section (from original) */
+
 .features {
     padding: 80px 20px;
     text-align: center;
@@ -215,7 +212,7 @@ body {
 
 .feature-card:hover {
     transform: translateY(-10px);
-    background: rgba(118, 153, 212, 0.1); /* #7699D4 tint */
+    background: rgba(118, 153, 212, 0.1); 
 }
 
 .feature-icon {
@@ -236,7 +233,7 @@ body {
     color: var(--text-dark);
 }
 
-/* Use Case Section (from original) */
+
 .use-case {
     padding: 80px 20px;
     background: rgba(248, 241, 233, 0.5);
@@ -288,7 +285,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Call to Action Section (from original) */
+
 .call-to-action {
     padding: 80px 20px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -327,7 +324,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Footer Styles (from original with adjustments) */
+
 .footer {
     padding: 40px 20px;
     background-color: var(--text-dark);
@@ -346,7 +343,7 @@ body {
 }
 
 .footer-logo {
-    height: 30px; /* Smaller for footer */
+    height: 30px; 
     width: auto;
     transition: var(--transition);
 }
@@ -387,7 +384,7 @@ body {
     font-size: 14px;
 }
 
-/* Policy Section Styles (from original) */
+
 .policy-section {
     padding: 80px 20px;
     background: var(--background-light);
@@ -443,7 +440,7 @@ body {
     left: 0;
 }
 
-/* Contact Section Styles (from original) */
+
 .contact-section {
     padding: 80px 20px;
     background: rgba(248, 241, 233, 0.5);
@@ -494,7 +491,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Auth Section Styles (from original) */
+
 .auth-section {
     min-height: 100vh;
     display: flex;
@@ -637,7 +634,7 @@ body {
     text-decoration: underline;
 }
 
-/* Google Login/Signup Button (from original) */
+
 .google-login {
     display: flex;
     align-items: center;
@@ -666,7 +663,7 @@ body {
     height: 24px;
 }
 
-/* Divider (from original) */
+
 .divider {
     position: relative;
     text-align: center;
@@ -693,7 +690,7 @@ body {
     z-index: 0;
 }
 
-/* reCAPTCHA (from original) */
+
 .recaptcha-container {
     display: flex;
     justify-content: center;
@@ -705,9 +702,9 @@ body {
     transform-origin: center;
 }
 
-/* Dashboard Specific Styles */
+
 .dashboard-container {
-    margin-top: 80px; /* Space below fixed header */
+    margin-top: 80px; 
     padding: 2rem;
     max-width: 1200px;
     margin-left: auto;
@@ -768,14 +765,14 @@ body {
     margin-top: 20px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .header {
         padding: 20px;
     }
 
     .logo {
-        height: 30px; /* Smaller logo for tablets */
+        height: 30px; 
     }
 
     .nav-list {
@@ -853,13 +850,13 @@ body {
     }
 
     .footer-logo {
-        height: 25px; /* Smaller for footer on tablets */
+        height: 25px; 
     }
 }
 
 @media (max-width: 480px) {
     .logo {
-        height: 25px; /* Smaller logo for phones */
+        height: 25px; 
     }
 
     .auth-buttons {
@@ -914,6 +911,6 @@ body {
     }
 
     .footer-logo {
-        height: 20px; /* Smaller for footer on phones */
+        height: 20px; 
     }
 }
