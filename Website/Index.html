@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform your financial management with MoneyMatic AI. Process invoices, tax returns, and more with advanced OCR and NLP technology.">
+    <title>MoneyMatic - AI Financial Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">MoneyMatic</div>
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#use-case" class="nav-link">Use Case</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="login.html" class="cta-button secondary">Log In</a>
+            <a href="signup.html" class="cta-button primary">Sign Up</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Financial Management with MoneyMatic AI</h1>
+            <p>Unlock the power of artificial intelligence to effortlessly process invoices, tax returns, and bank statements. With advanced OCR and NLP technology, MoneyMatic automates budgeting, categorizes expenses, and provides insightful visual summaries to boost your financial health—starting today!</p>
+            <a href="signup.html" class="cta-button primary">Get Started</a>
+        </div>
+        <div class="wave-background"></div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Why Choose MoneyMatic?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🔍</div>
+                <h3>Smart Document Analysis</h3>
+                <p>Our cutting-edge OCR and NLP technology extracts key data from financial documents with 98% accuracy. Say goodbye to manual entry and hello to efficiency!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">📊</div>
+                <h3>Seamless Expense Organization</h3>
+                <p>Automatically sort your expenses into customizable categories like utilities, travel, and groceries. Gain clarity with real-time updates.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">📈</div>
+                <h3>Actionable Insights at a Glance</h3>
+                <p>Generate interactive dashboards and visual reports to monitor your financial health. Spot trends and make informed decisions effortlessly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🔒</div>
+                <h3>Bank-Level Security</h3>
+                <p>Your financial data is encrypted and protected with top-tier security protocols, ensuring privacy and peace of mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="use-case" class="use-case">
+        <h2>Proven Solution with Real Data</h2>
+        <p>MoneyMatic is built and tested using the Indian Financial Dataset from Kaggle, a comprehensive collection of financial documents. Experience a platform designed for real-world financial challenges.</p>
+        <ul>
+            <li>Access our GitHub repository with clean, well-documented code and model training scripts.</li>
+            <li>Explore sample input-output files to see MoneyMatic in action.</li>
+            <li>Download our concise presentation deck covering the problem, solution, tech stack, and future scope.</li>
+            <li>Watch an optional demo video showcasing key features and live processing (coming soon!)</li>
+        </ul>
+        <div class="use-case-visual" aria-label="Dataset mockup placeholder"></div>
+    </section>
+
+    <section id="cta" class="call-to-action">
+        <h2>Ready to Simplify Your Finances?</h2>
+        <p>Sign up today for a free trial and discover how MoneyMatic can transform your financial management. No credit card required!</p>
+        <div class="cta-buttons">
+            <a href="signup.html" class="cta-button primary">Get Started</a>
+            <a href="#features" class="cta-button secondary">Learn More</a>
+        </div>
+        <div class="cta-visual" aria-label="Signup form mockup placeholder"></div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-logo">MoneyMatic</div>
+        <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" aria-label="Twitter"><span>🐦</span></a>
+            <a href="#" aria-label="LinkedIn"><span>💼</span></a>
+            <a href="#" aria-label="YouTube"><span>🎥</span></a>
+        </div>
+        <p>Made with love ❤️ by CodeStorm</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navList = document.querySelector('.nav-list');
+        navToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
