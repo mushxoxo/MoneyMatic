@@ -36,12 +36,20 @@ body {
     z-index: 1000;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--accent-color);
-    text-transform: uppercase;
+    height: 40px; /* Adjust based on your logo size */
+    width: auto;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    opacity: 0.9;
 }
 
 .nav {
@@ -328,11 +336,20 @@ body {
     gap: 20px;
 }
 
+.footer-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .footer-logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--accent-color);
+    height: 30px; /* Smaller for footer */
+    width: auto;
+    transition: var(--transition);
+}
+
+.footer-logo:hover {
+    opacity: 0.9;
 }
 
 .footer-links {
@@ -691,6 +708,10 @@ body {
         padding: 20px;
     }
 
+    .logo {
+        height: 30px; /* Smaller logo for tablets */
+    }
+
     .nav-list {
         display: none;
         position: absolute;
@@ -751,9 +772,17 @@ body {
     .contact-content {
         padding: 15px;
     }
+
+    .footer-logo {
+        height: 25px; /* Smaller for footer on tablets */
+    }
 }
 
 @media (max-width: 480px) {
+    .logo {
+        height: 25px; /* Smaller logo for phones */
+    }
+
     .auth-buttons {
         flex-direction: column;
         gap: 10px;
@@ -803,5 +832,9 @@ body {
     .recaptcha-container {
         transform: scale(0.9);
         transform-origin: center;
+    }
+
+    .footer-logo {
+        height: 20px; /* Smaller for footer on phones */
     }
 }
