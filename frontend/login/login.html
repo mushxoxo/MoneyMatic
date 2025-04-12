@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to MoneyMatic AI to manage your finances with ease.">
+    <title>MoneyMatic - Log In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo-link">
+            <img src="../img/logo-no-background.png" alt="MoneyMatic Logo" class="logo">
+        </a>
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../index.html#use-case" class="nav-link">Use Case</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="login.html" class="cta-button secondary">Log In</a>
+            <a href="signup.html" class="cta-button primary">Sign Up</a>
+        </div>
+    </header>
+
+    <section class="auth-section">
+        <div class="auth-card">
+            <h1>Log In</h1>
+            <p>Welcome back! Access your MoneyMatic account.</p>
+            <form action="/api/login" method="post" class="auth-form">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Email Address</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" required placeholder=" ">
+                    <label for="password">Password</label>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
+                </div>
+                <button type="submit" class="cta-button primary" id="login-button">Log In</button>
+            </form>
+            <div class="auth-options">
+                <p>Don't have an account? <a href="signup.html" class="auth-link">Sign Up</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">MoneyMatic</div>
+        <ul class="footer-links">
+            <li><a href="../other/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../other/terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../other/contact-us.html">Contact Us</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="https://twitter.com" aria-label="Twitter"><span>🐦</span></a>
+            <a href="https://linkedin.com" aria-label="LinkedIn"><span>💼</span></a>
+            <a href="https://youtube.com" aria-label="YouTube"><span>🎥</span></a>
+        </div>
+        <p>Made with love ❤️ by CodeStorm</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navList = document.querySelector('.nav-list');
+        navToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.querySelector('#password');
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        const loginForm = document.querySelector('.auth-form');
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    alert('Login successful!');
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                alert('Login failed. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

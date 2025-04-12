@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact MoneyMatic AI for support or inquiries.">
+    <title>MoneyMatic - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../Index.html" class="logo-link">
+            <img src="../img/logo-no-background.png" alt="MoneyMatic Logo" class="logo">
+        </a>
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../index.html#use-case" class="nav-link">Use Case</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="../login/login.html" class="cta-button secondary">Log In</a>
+            <a href="../login/signup.html" class="cta-button primary">Sign Up</a>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-content">
+            <h1>Contact Us</h1>
+            <p>We’d love to hear from you! Reach out to us for support, inquiries, or feedback.</p>
+
+            <h2>Contact Information</h2>
+            <ul>
+                <li><strong>Email:</strong> support@moneymatic.ai</li>
+                <li><strong>Phone:</strong> +1-800-555-1234</li>
+                <li><strong>Address:</strong> 123 Finance Lane, Tech City, TC 45678</li>
+            </ul>
+
+            <h2>Send Us a Message</h2>
+            <form action="#" method="post" class="auth-form">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" required placeholder=" ">
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="cta-button primary">Send Message</button>
+            </form>
+
+            <p>For privacy concerns, see our <a href="privacy-policy.html">Privacy Policy</a>. For service terms, review our <a href="terms-of-service.html">Terms of Service</a>.</p>
+            <a href="index.html" class="cta-button secondary">Back to Home</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">MoneyMatic</div>
+        <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" aria-label="Twitter"><span>🐦</span></a>
+            <a href="#" aria-label="LinkedIn"><span>💼</span></a>
+            <a href="#" aria-label="YouTube"><span>🎥</span></a>
+        </div>
+        <p>Made with love ❤️ by CodeStorm</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navList = document.querySelector('.nav-list');
+        navToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

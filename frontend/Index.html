@@ -6,8 +6,9 @@
     <meta name="description" content="Transform your financial management with MoneyMatic AI. Process invoices, tax returns, and more with advanced OCR and NLP technology.">
     <title>MoneyMatic - AI Financial Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
+
 <body>
     <header class="header">
         <a href="index.html" class="logo-link">
@@ -23,8 +24,8 @@
             </ul>
         </nav>
         <div class="auth-buttons">
-            <a href="login.html" class="cta-button secondary">Log In</a>
-            <a href="signup.html" class="cta-button primary">Sign Up</a>
+            <a href="login/login.html" class="cta-button secondary">Log In</a>
+            <a href="login/signup.html" class="cta-button primary">Sign Up</a>
         </div>
     </header>
 
@@ -32,7 +33,7 @@
         <div class="hero-content">
             <h1>Transform Your Financial Management with MoneyMatic AI</h1>
             <p>Unlock the power of artificial intelligence to effortlessly process invoices, tax returns, and bank statements. With advanced OCR and NLP technology, MoneyMatic automates budgeting, categorizes expenses, and provides insightful visual summaries to boost your financial health—starting today!</p>
-            <a href="signup.html" class="cta-button primary">Get Started</a>
+            <a href="login/signup.html" class="cta-button primary">Get Started</a>
         </div>
         <div class="wave-background"></div>
     </section>
@@ -79,7 +80,7 @@
         <h2>Ready to Simplify Your Finances?</h2>
         <p>Sign up today for a free trial and discover how MoneyMatic can transform your financial management. No credit card required!</p>
         <div class="cta-buttons">
-            <a href="signup.html" class="cta-button primary">Get Started</a>
+            <a href="login/signup.html" class="cta-button primary">Get Started</a>
             <a href="#features" class="cta-button secondary">Learn More</a>
         </div>
         <div class="cta-visual" aria-label="Signup form mockup placeholder"></div>
@@ -88,9 +89,9 @@
     <footer id="contact" class="footer">
         <div class="footer-logo">MoneyMatic</div>
         <ul class="footer-links">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="other/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="other/terms-of-service.html">Terms of Service</a></li>
+            <li><a href="other/contact-us.html">Contact Us</a></li>
         </ul>
         <div class="social-icons">
             <a href="#" aria-label="Twitter"><span>🐦</span></a>
@@ -100,11 +101,25 @@
         <p>Made with love ❤️ by CodeStorm</p>
     </footer>
 
+    <form id="uploadForm" style="display: none;">
+        <input type="file" id="fileInput" accept=".pdf,.jpg,.png">
+        <button type="submit">Upload</button>
+    </form>
+    <div id="output"></div>
+
     <script>
         const navToggle = document.querySelector('.nav-toggle');
         const navList = document.querySelector('.nav-list');
         navToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
+        });
+        document.getElementById("uploadForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            document.getElementById("output").innerText = "Analyzing...";
+
+            setTimeout(() => {
+                document.getElementById("output").innerText = "Prediction: Profit Expected 🚀";
+            }, 2000);
         });
     </script>
 </body>
