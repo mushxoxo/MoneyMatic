@@ -1,0 +1,19 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+pytesseract
+Pillow
+spacy
+en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.1/en_core_web_trf-3.7.1-py3-none-any.whl
+regex
+torch
+transformers
+datasets
+sentence-transformers
+seqeval
+scikit-plot
+tqdm
+joblib 
+plotly
