@@ -1,15 +1,14 @@
-/* Root Variables */
+
 :root {
-    --primary-color: #7699D4; /* Soft Blue: Buttons, links, focus */
-    --secondary-color: #41EAD4; /* Teal: Hover, secondary buttons */
-    --accent-color: #D1345B; /* Coral-Red: Logo, hero heading */
-    --background-light: #F8F1E9; /* Off-White: Backgrounds, cards */
-    --text-dark: #1C2321; /* Dark Gray: Text, headers */
+    --primary-color: #7699D4; 
+    --secondary-color: #41EAD4; 
+    --accent-color: #D1345B; 
+    --background-light: #F8F1E9; 
+    --text-dark: #1C2321; 
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
 
-/* Reset default margins and padding */
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Header Styles */
 .header {
     position: fixed;
     top: 0;
@@ -129,7 +127,6 @@ body {
     color: #fff;
 }
 
-/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
@@ -183,7 +180,6 @@ body {
     z-index: -1;
 }
 
-/* Features Section */
 .features {
     padding: 80px 20px;
     text-align: center;
@@ -236,7 +232,6 @@ body {
     color: var(--text-dark);
 }
 
-/* Use Case Section */
 .use-case {
     padding: 80px 20px;
     background: rgba(248, 241, 233, 0.5);
@@ -279,7 +274,6 @@ body {
     left: 0;
 }
 
-/* Call to Action Section */
 .call-to-action {
     padding: 80px 20px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -308,7 +302,6 @@ body {
     gap: 20px;
 }
 
-/* Footer Styles */
 .footer {
     padding: 40px 20px;
     background-color: var(--text-dark);
@@ -368,7 +361,6 @@ body {
     font-size: 14px;
 }
 
-/* Policy Section Styles */
 .policy-section {
     padding: 80px 20px;
     background: var(--background-light);
@@ -424,7 +416,6 @@ body {
     left: 0;
 }
 
-/* Contact Section Styles */
 .contact-section {
     padding: 80px 20px;
     background: rgba(248, 241, 233, 0.5);
@@ -475,7 +466,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Auth Section Styles */
 .auth-section {
     min-height: 100vh;
     display: flex;
@@ -618,7 +608,6 @@ body {
     text-decoration: underline;
 }
 
-/* Google Login/Signup Button */
 .google-login {
     display: flex;
     align-items: center;
@@ -647,7 +636,7 @@ body {
     height: 24px;
 }
 
-/* Divider */
+
 .divider {
     position: relative;
     text-align: center;
@@ -674,7 +663,7 @@ body {
     z-index: 0;
 }
 
-/* reCAPTCHA */
+
 .recaptcha-container {
     display: flex;
     justify-content: center;
@@ -686,7 +675,7 @@ body {
     transform-origin: center;
 }
 
-/* Dashboard Specific Styles */
+
 .dashboard-container {
     margin-top: 80px;
     padding: 2rem;
@@ -749,7 +738,7 @@ body {
     margin-top: 20px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .header {
         padding: 20px;
