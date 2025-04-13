@@ -1,86 +1,176 @@
 
 # 💸 MoneyMatic
 
-This project is a Flask-based web application that lets you upload scanned financial documents (images) and classifies them into categories like:
+**MoneyMatic** is an AI-powered web application that extracts and classifies scanned financial documents using OCR, NLP, and deep learning. It also includes a secure user authentication system built with Node.js and MongoDB. It is designed to classify scanned financial documents into categories such as:
 
-- Balance Sheets  
-- Cash Flow  
-- Income Statement  
-- Notes  
-- Others  
+- Balance Sheets
+- Cash Flow Statements
+- Income Statements
+- Notes
+- Others
 
-It uses:
+---
 
-- OCR (pytesseract) to extract text from images  
-- spaCy for preprocessing  
-- Gensim Word2Vec embeddings  
-- TensorFlow CNN model for classification  
+## Features
 
-—
+- **OCR Processing**: Extract text from images of financial documents (e.g., `.jpg`, `.jpeg`, `.png`).
+- **Data Cleaning**: Preprocess extracted text to remove noise and standardize the format.
+- **Classification**: Classify financial documents into categories using a trained machine learning model.
+- **Web Interface**: Upload documents via a user-friendly dashboard.
+- **Secure**: Bank-level security for user data.
 
-🚀 Features
+---
 
-- Upload a .jpg/.png image from your browser  
-- Automatically extracts and processes text  
-- Predicts financial document type  
-- Displays confidence score and extracted text preview  
+## 🗂️ Project Structure
 
-—
+```
+MoneyMatic/
+├── backend/
+│   ├── app.py
+│   ├── utils/
+│   │   ├── extract_and_prepare.py
+│   │   └── other_utils.py
+│   ├── model/
+│   │   └── financial_text_classifier.joblib
+│   └── uploads/
+│
+├── frontend/
+│   ├── index.html
+│   ├── login/
+│   │   ├── dashboard.html
+│   │   └── signup.html
+│   ├── CSS/
+│   │   └── styles.css
+│   └── img/
+│
+├── moneymatic-backend/
+│   ├── server.js
+│   ├── config/
+│   │   └── db.js
+│   ├── routes/
+│   │   └── auth.js
+│   └── middleware/
+│       └── auth.js
+│
+└── README.md
 
-📦 Requirements
+```
 
-Install Python 3.8+ and the required packages:
+## ⚙️ Installation
 
-pip install -r requirements.txt
+### Prerequisites
 
-Also install Tesseract OCR engine:
+1. **Python**: Version 3.8 or higher.
+2. **Node.js**: Version 14 or higher.
+3. **Tesseract OCR**: Install from [Tesseract OCR GitHub](https://github.com/tesseract-ocr/tesseract).
+4. **MongoDB**: For user authentication and data storage.
 
-- Windows: https://github.com/tesseract-ocr/tesseract  
-- Ubuntu: sudo apt install tesseract-ocr  
-- Mac (brew): brew install tesseract  
+### Steps
 
-—
+1. **Clone the repository:**
 
-▶️ How to Run
+   ```bash
+   git clone https://github.com/mushxoxo/MoneyMatic.git
+   cd MoneyMatic
+   ```
 
-1. Start the Flask app:
+2. **Create and activate a virtual environment:**
 
-python app.py
+   ```bash
+   python -m venv venv1
+   source venv1/bin/activate  # On Windows: venv1\Scripts\activate
+   ```
 
-2. Visit the web app:
+3. **Install the required packages:**
 
-http://localhost:5000
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Upload a scanned financial image and view predictions
+4. **Install Tesseract OCR:**
 
-—
+   - **Ubuntu:**
 
-🧪 Example Output
+     ```bash
+     sudo apt update
+     sudo apt install tesseract-ocr
+     ```
 
-{
-  "prediction": "Income Statement",
-  "confidence": 94.23,
-  "text": "Revenue for the quarter ended March 2024 was ₹120 Cr..."
-}
+   - **macOS (using Homebrew):**
 
-—
+     ```bash
+     brew install tesseract
+     ```
 
-🧰 Model Training (optional)
+   - **Windows:**
 
-If you're training your own models:
+     Download and install from [Tesseract OCR GitHub](https://github.com/tesseract-ocr/tesseract).
 
-- Preprocess and label your text data  
-- Train Word2Vec using gensim  
-- Extract embeddings and train a 1D CNN using TensorFlow/Keras  
+---
 
-—
+## ▶️ Running the Application
 
-📌 Notes
+1. **Navigate to the backend directory:**
 
-- Make sure punkt is downloaded by nltk:
+   ```bash
+   cd backend
+   ```
 
-  import nltk  
-  nltk.download('punkt')
+2. **Start the Flask application:**
 
-- Model expects 300-dim embeddings by default  
-- You can extend it to support PDF, multi-page, and streamlit frontend easily  
+   ```bash
+   python app.py
+   ```
+3. **Navigate to the moneymatic-backend directory:**
+
+   ```bash
+   cd moneymatic-backend
+   ```
+
+4. **Start the Node.js server:**
+
+   ```bash
+   node server.js
+   ```
+
+5. **Access the web interface:**
+
+   Open your browser and go to [http://localhost:5000](http://localhost:5000)
+
+6. **Login or sign-up using an email id**
+
+7. **Upload and classify documents:**
+
+   - Click on the upload button to select a `.jpg` or `.png` file.
+   - View the predicted category, confidence score, and extracted text.
+
+---
+
+## 📈 Model Training (Optional)
+
+If you wish to retrain the model:
+
+1. **Prepare your dataset:**
+
+   - Organize images into subdirectories named after their respective categories.
+
+2. **Run all the scripts in the utils directory:**
+
+   Ensure that the script paths and parameters are correctly set according to your dataset.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👥 Contributors
+
+- [Jyot Shah](https://github.com/Jyot-Shah)
+- [Tanmaya Raghuwanshi](https://github.com/Tanmaya113)
+- [Arnav Verma](https://github.com/1M-ARNAVERMA)
+- [Bhanu Agrawal](https://github.com/mushxoxo)
+
+---
